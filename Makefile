@@ -6,9 +6,11 @@ flex:
 	flex -o lex.yy.cc main.l
 g++:
 	g++ $(shell ls *.cc *.cpp) -o main.out
-test:
+test1:
 	./main.out <0.c > 0.res
-rerun: clean all test
+test2:
+	./main.out <1.c > 1.res
+rerun: clean all test1 test2
 
 run:
 	for file in $(basename $(shell find test/*.c)); \
